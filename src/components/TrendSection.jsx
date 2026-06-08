@@ -7,13 +7,11 @@ const TrendSection = () => {
 
   const topCoins=coins.slice(0,3)
 
-
-  useEffect(() => {
-     DataCoinsList()
-  }, []);
+console.log(coins);
+  
 
   return (
-    <div className="grid gap-1 grid-cols-1 md:grid-cols-3 mb-8">
+    <div className="grid gap-1 grid-cols-1 md:grid-cols-3 mb-8 mx-1">
       {topCoins.map((coin) => {
         return(
             <div

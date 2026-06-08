@@ -1,20 +1,29 @@
-import Header from "./components/Header";
-import TrendSection from "./components/TrendSection";
-import Search from "./components/Search";
-import CryptoList from "./components/CryptoList"
-import PriceChartModal  from "./components/PriceChartModal"
-import Pagination from "./components/Pagination"
-import CoinCard from "./components/CoinCard";
+import Header from "/src/components/Header";
+import TrendSection from "/src/components/TrendSection";
+import Search from "/src/components/Search";
+import CryptoList from "/src/components/CryptoList"
+import PriceChartModal  from "/src/components/PriceChartModal"
+import Pagination from "/src/components/Pagination"
+import CoinCard from "/src/components/CoinCard";
+import { useContext, useEffect } from "react";
+import { ApContext } from "./context/Context";
+
 
 
 const App = () => {
+    const{loading,page,search,coins,DataCoinsList}=useContext(ApContext)
+    
+    useEffect(() => {
+     DataCoinsList()
+  }, []);
 
     return (
         <div className='min-h-screen bg-slate-50'>
        <Header/>
        <main className="container mx-auto mt-8">
-
+{!loading && page===1 && !search && coins.length>0 &&
        <TrendSection/>
+}
        <Search/>
        <CryptoList/>
        <Pagination/>
