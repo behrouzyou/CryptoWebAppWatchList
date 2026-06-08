@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { FiRefreshCcw } from "react-icons/fi";
+import { ApContext } from "../context/Context";
 
 const Header = () => {
+    const{DataCoinsList}=useContext(ApContext)
   return (
     <header className="sticky top-0 bg-white/90 z-30 backdrop-blur-md border-b border-gray-200 ">
       <div className="container flex mx-auto py-4 justify-between items-center">
@@ -10,7 +13,7 @@ const Header = () => {
           </div>
           <h1 className="text-xl font-black text-gray-800">CryptoView</h1>
         </div>
-        <button className="text-gray-500 p-2 hover:bg-gray-100 rounded-full"><FiRefreshCcw/></button>
+        <button className="text-gray-500 p-2 hover:bg-gray-100 rounded-full" onClick={()=>DataCoinsList()}><FiRefreshCcw/></button>
       </div>
     </header>
   );
